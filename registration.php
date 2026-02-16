@@ -28,35 +28,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="input.css">
     <title>User Registration</title>
 </head>
 <body>
     
-    <div>
+    <div id="form-container">
         <form action="registration.php" method="post" id="form">
             <div class="container">
                 <h1>Registration</h1>
 
-                <label for="first-name">Primeiro Nome:</label>
-                <input type="text" name="first-name" id="first-name" required>
+                <!-- Linha 1 -->
+                <div class="row">
+                    <div class="input-group">
+                        <input type="text" name="first-name" id="first-name" required>
+                        <label for="first-name">* Primeiro Nome</label>
+                    </div>
 
-                <label for="last-name">Último Nome:</label>
-                <input type="text" name="last-name" id="last-name" required>
+                    <div class="input-group">
+                        <input type="text" name="last-name" id="last-name" required>
+                        <label for="last-name">* Último Nome</label>
+                    </div>
+                </div>
 
-                <label for="email">Email:</label>
-                <input type="email" name="email" id="email" required>
+                <!-- Linha 2 (Email ocupa tudo) -->
+                <div class="input-group full">
+                    <input type="email" name="email" id="email" required>
+                    <label for="email">* Email</label>
+                </div>
 
-                <label for="phone-number">Telefone:</label>
-                <input type="text" name="phone-number" id="phone-number">
+                <!-- Linha 3 -->
+                <div class="row">
+                    <div class="input-group">
+                        <input type="password" name="password" id="password" required>
+                        <label for="password">* Senha</label>
+                    </div>
 
-                <label for="password">Senha:</label>
-                <input type="password" name="password" id="password" required>
-
+                    <div class="input-group">
+                        <input type="text" name="phone-number" id="phone-number" required>
+                        <label for="phone-number">* Telefone</label>
+                    </div>
+                </div>
 
                 <input type="submit" name="create" id="register" value="Sign Up">
             </div>
+            <p>Já possui uma conta? <a href="login.php">Clique aqui!</a></p>
         </form>
-        <a href="login.php">Login</a>
+        
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
