@@ -83,17 +83,6 @@
         </form>
         
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <?php if(isset($_GET['success'])): ?>
-    <script>
-        Swal.fire({
-            title: 'Tudo Certo!',
-            text: 'Usuário salvo com sucesso!',
-            icon: 'success'
-        });
-    </script>
-    <?php endif; ?>
     
     <script src="js/main.js"></script>
 </body>
