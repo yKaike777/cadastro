@@ -70,4 +70,24 @@
             header("Location: usuario-list.php");           
         }
     }
+
+    if (isset($_POST['delete_usuario'])){
+        $usuario_id = $_GET['id'];  
+
+        $sql = "DELETE FROM usuarios WHERE id = :id";
+        $stmt = $conn->prepare($sql);
+        $result = $stmt->execute([
+            ':id' => $usuario_id
+            ]);
+
+        if ($result){
+            $_SESSION['message'] = "Usuário deletado com sucesso!";
+            header("Location: usuario-list.php");
+            exit;
+        } else{
+            $_SESSION['message'] = "Erro ao deletar usuário";
+            header("Location: usuario-list.php");
+            exit;
+        }
+    }
 ?>
