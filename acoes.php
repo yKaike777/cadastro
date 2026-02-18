@@ -22,4 +22,52 @@
             header("Location: usuario-list.php");           
         }
     }
+
+    if (isset($_POST['update_usuario'])){
+        $usuario_id = $_GET['id'];
+        $perfil = trim($_POST['perfil']);
+        $primeiro_nome = trim($_POST['first_name']);
+        $ultimo_nome = trim($_POST['last_name']);
+        $email = trim($_POST['email']);
+        $telefone = preg_replace('/[^0-9]/', '', $_POST['phone_number']);
+        $senha = trim($_POST['password']);
+        
+        $sql = "UPDATE usuarios
+        SET perfil = :perfil,
+            primeiro_nome = :primeiro_nome,
+            ultimo_nome = :ultimo_nome,
+            email = :email,
+            telefone = :telefone";
+
+        if (!empty($senha)){
+            $sql .= ", senha = :senha";
+        }
+
+        $sql .= " WHERE id = :id";
+
+        $stmt = $conn->prepare($sql);
+
+        $params = [
+            ':perfil' => $perfil,
+            ':primeiro_nome' => $primeiro_nome,
+            ':ultimo_nome' => $ultimo_nome,
+            ':email' => $email,
+            ':telefone' => $telefone,
+            ':id' => $usuario_id
+        ];
+
+        if (!empty($senha)) {
+            $params[':senha'] = password_hash($senha, PASSWORD_DEFAULT);
+        }
+
+        $result = $stmt->execute($params);
+
+        if ($result){
+            $_SESSION['message'] = "Usuário atualizado com sucesso!";
+            header("Location: usuario-list.php");
+        } else{
+            $_SESSION['message'] = "Erro ao atualizar usuário!";
+            header("Location: usuario-list.php");           
+        }
+    }
 ?>
