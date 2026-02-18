@@ -37,7 +37,7 @@
     <div id="form-container">
         <form action="registration.php" method="post" id="form">
             <div class="container">
-                <h1>Registration</h1>
+                <h1>Registrar-se</h1>
 
                 <!-- Linha 1 -->
                 <div class="row">
@@ -71,7 +71,7 @@
                     </div>
                 </div>
 
-                <input type="submit" name="create" id="register" value="Sign Up">
+                <input type="submit" name="create" id="register" value="Cadastrar-se">
             </div>
             <p>Já possui uma conta? <a href="login.php">Clique aqui!</a></p>
 
