@@ -3,7 +3,7 @@
     $sucesso = false;
 
     if(isset($_POST['create'])){ // Depois do botão 'create' ser apertado, cria um novo usuário no banco de dados
-        $profile        = 'comum';
+        $profile        = 'admin';
         $firstName      = trim($_POST['first-name']);
         $lastName       = trim($_POST['last-name']);
         $email          = trim($_POST['email']);
